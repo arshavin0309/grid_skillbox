@@ -1,0 +1,257 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.container {
+  font-family: 'Roboto';
+  max-width: 1290px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 22px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #FF6E30;
+  color: #fff;
+}
+
+.title {
+  font-family: 'TT Firs Neue';
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.discription {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.header {
+  grid-area: 'header';
+  background-color: #202020;
+}
+
+.header .container {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo {
+  max-width: 190px;
+  max-height: 30px;
+}
+
+.header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.header__link {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  color: #fff;
+}
+
+.header__link:not(:last-child) {
+  margin-right: 80px;
+}
+
+.header__social:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header__search {
+  display: none;
+}
+
+.header__svg {
+  width: 30px;
+  height: 30px;
+}
+
+main {
+  grid-area: 'main';
+}
+
+.hero {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.hero .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: minmax(50px, 1fr) (1fr)[3];
+      grid-template-rows: minmax(50px, 1fr) repeat(3, 1fr);
+  gap: 30px;
+}
+
+.hero__item {
+  max-width: 100%;
+  min-height: 100px;
+}
+
+.hero__item h2 {
+  font-size: 24px;
+}
+
+.hero__item:nth-child(1) {
+  position: relative;
+  grid-column: span 2;
+  grid-row: span 4;
+  background: url("../img/hero-1.jpg");
+}
+
+.hero__item:nth-child(1) span {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 7px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+}
+
+.hero__item:nth-child(2) {
+  grid-column: span 2;
+}
+
+.hero__item:nth-child(3) {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: url("../img/hero-2.jpg");
+}
+
+.hero__item:nth-child(4) {
+  background: url("../img/hero-3.jpg");
+}
+
+.hero__item:nth-child(5) {
+  background: url("../img/hero-4.jpg");
+}
+
+.hero__box {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  color: #fff;
+}
+
+.hero__box div {
+  font-size: 16px;
+}
+
+.hero__box h1 {
+  font-weight: bold;
+  font-size: 34px;
+}
+
+.about_us {
+  background-color: #202020;
+}
+
+.about_us__container {
+  display: -ms-grid;
+  display: grid;
+  padding-top: 30px;
+  padding-bottom: 70px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.about_us h2 {
+  color: #fff;
+}
+
+.about_us p {
+  font-family: 'Roboto';
+  font-size: 16px;
+  line-height: 28px;
+  color: #CACACA;
+}
+
+.about_us span {
+  width: 100%;
+  min-height: 255px;
+  background: url("../img/about-us.jpg");
+}
+
+.projects__box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.projects__item {
+  min-height: 300px;
+}
+
+.projects__item span {
+  padding-left: 17px;
+  font-size: 12px;
+  color: #999999;
+  background: url("../img/svg/calendar-gray.svg") no-repeat;
+  background-position: left center;
+}
+
+.projects__item:nth-child(1) {
+  grid-column: span 2;
+}
+
+.projects__item:nth-child(2) {
+  grid-column: span 2;
+}
+
+.projects__item:nth-child(3) {
+  grid-column: span 2;
+}
+
+.projects__item:nth-child(4) {
+  grid-column: span 6;
+  background: url("../img/about-project-1.jpg") no-repeat;
+}
+
+.projects__item:nth-child(5) {
+  grid-column: span 6;
+  background: url("../img/about-project-2.jpg") no-repeat;
+}
+
+.projects__item:nth-child(6) {
+  grid-column: span 3;
+}
+
+.projects__item:nth-child(7) {
+  grid-column: span 3;
+}
+
+footer {
+  grid-area: 'footer';
+  background-color: #202020;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,225 @@
+$mainBackground: #202020;
+$btnBackground: #FF6E30;
+$spanBackground: #333;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    font-family: 'Roboto';
+    max-width: 1290px;
+    margin: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 22px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: $btnBackground;
+    color: #fff;
+}
+
+.title {
+    font-family: 'TT Firs Neue';
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.discription {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.header {
+    grid-area: 'header';
+    background-color: $mainBackground;
+
+    .container {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        max-width: 190px;
+        max-height: 30px;
+    }
+
+    &__nav {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__link {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 21px;
+        color: #fff;
+    }
+
+    &__link:not(:last-child) {
+        margin-right: 80px;
+    }
+
+    &__social:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    &__search {
+        display: none;
+    }
+
+    &__svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+main {
+    grid-area: 'main';
+}
+
+.hero {
+    padding-top: 40px;
+    padding-bottom: 70px;
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: minmax(50px, 1fr) repeat(3, 1fr);
+        gap: 30px;
+    }
+    &__item {
+        max-width: 100%;
+        min-height: 100px;
+
+        h2 {
+            font-size: 24px;
+        }
+    }
+    &__item:nth-child(1) {
+        position: relative;
+        grid-column: span 2;
+        grid-row: span 4;
+        background: url('../img/hero-1.jpg');
+
+        span {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 7px 15px;
+            font-size: 14px;
+            color: #fff;
+            background-color: $spanBackground;
+        }
+    }
+    &__item:nth-child(2) {
+        grid-column: span 2;
+    }
+    &__item:nth-child(3) {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: url('../img/hero-2.jpg');
+    }
+    &__item:nth-child(4) {
+        background: url('../img/hero-3.jpg');
+    }
+    &__item:nth-child(5) {
+        background: url('../img/hero-4.jpg');
+    }
+    &__box {
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+        color: #fff;
+
+        div {
+            font-size: 16px;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 34px;
+        }
+    }
+}
+
+.about_us {
+    background-color: $mainBackground;
+
+    &__container {
+        display: grid;
+        padding-top: 30px;
+        padding-bottom: 70px;
+        grid-template-columns: 1fr 1fr;
+    }
+    h2 {
+        color: #fff;
+    }
+    p {
+        font-family: 'Roboto';
+        font-size: 16px;
+        line-height: 28px;
+        color: #CACACA;
+    }
+    span {
+        width: 100%;
+        min-height: 255px;
+        background: url('../img/about-us.jpg');
+    }
+}
+
+.projects {
+    &__box{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
+    }
+    &__item {
+        min-height: 300px;
+
+        span {
+            padding-left: 17px;
+            font-size: 12px;
+            color: #999999;
+            background: url('../img/svg/calendar-gray.svg') no-repeat;
+            background-position: left center;
+        }
+    }
+    &__item:nth-child(1){
+        grid-column: span 2;
+    }
+    &__item:nth-child(2){
+        grid-column: span 2;
+    }
+    &__item:nth-child(3){
+        grid-column: span 2;
+    }
+    &__item:nth-child(4){
+        grid-column: span 6;
+        background: url('../img/about-project-1.jpg') no-repeat;
+    }
+    &__item:nth-child(5){
+        grid-column: span 6;
+        background: url('../img/about-project-2.jpg') no-repeat;
+    }
+    &__item:nth-child(6){
+        grid-column: span 3;
+    }
+    &__item:nth-child(7){
+        grid-column: span 3;
+    }
+}
+
+footer {
+    grid-area: 'footer';
+    background-color: $mainBackground;
+}
