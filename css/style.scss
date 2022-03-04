@@ -2,12 +2,46 @@ $mainBackground: #202020;
 $btnBackground: #FF6E30;
 $spanBackground: #333;
 
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue'),
+         url('../fonts/TTFirsNeue-Bold.woff') format('woff'); 
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue'),
+         url('../fonts/TTFirsNeue-Regular.woff') format('woff'); 
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue'),
+         url('../fonts/TTFirsNeue-Medium.woff') format('woff'); 
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue'),
+         url('../fonts/TTFirsNeue-DemiBold.woff') format('woff'); 
+    font-weight: 600;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
+    border: none;
+    outline: none;   
 }
 
 .container {
@@ -19,15 +53,56 @@ $spanBackground: #333;
 .btn {
     display: inline-block;
     padding: 15px 22px;
+    font-family: 'Roboto';
     font-weight: bold;
-    font-size: 16px;
+    font-size: 17px;
     background-color: $btnBackground;
     color: #fff;
+    cursor: pointer;
+    transition: .3s ease-in-out background-color;
+}
+
+.btn:hover {
+    background-color: #BC572B;
+}
+
+.btn:focus {
+    outline: 3px solid #BC572B;
+}
+
+.btn:active {
+    background-color: #CE4307;
+}
+
+.btn_transparent {
+    display: inline-block;
+    padding: 12px 19px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    border: 4px solid $btnBackground;
+    cursor: pointer;
+    transition: .3s ease-in-out background-color;
+}
+
+.btn_transparent:hover {
+    background-color: #FF6E30;
+}
+
+.btn_transparent:focus {
+    background-color: #BC572B;
+    outline: 3px solid #FF6E30;
+}
+
+.btn_transparent:active {
+    background-color: #CE4307;
 }
 
 .title {
     font-family: 'TT Firs Neue';
-    font-size: 24px;
+    font-size: 22.5px;
     font-weight: 700;
 }
 
@@ -47,36 +122,46 @@ $spanBackground: #333;
         justify-content: space-between;
         align-items: center;
     }
-
     &__logo {
         max-width: 190px;
         max-height: 30px;
     }
-
     &__nav {
+        padding-left: 62px;
         display: flex;
         flex-wrap: nowrap;
     }
-
     &__link {
         font-weight: normal;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 21px;
         color: #fff;
+        transition: .3s ease-in-out color;
     }
-
     &__link:not(:last-child) {
-        margin-right: 80px;
+        margin-right: 79px;
     }
-
+    &__link:hover {
+        color: #FF6E30;
+    }
+    &__link:focus {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #fff;
+        background-color: #BC572B;
+    }
+    &__link:active {
+        padding-left: 0;
+        padding-right: 0;
+        color: #CE4307;
+        background-color: transparent;
+    }
     &__social:not(:last-child) {
-        margin-right: 20px;
+        margin-right: 16px;
     }
-
     &__search {
         display: none;
     }
-
     &__svg {
         width: 30px;
         height: 30px;
@@ -92,31 +177,34 @@ main {
     padding-bottom: 70px;
 
     .container{
+        min-height: 630px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: minmax(50px, 1fr) repeat(3, 1fr);
+        grid-template-rows: 25px repeat(2, 1fr) minmax(105px, 255px);
         gap: 30px;
     }
     &__item {
         max-width: 100%;
-        min-height: 100px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
 
-        h2 {
-            font-size: 24px;
+        .title {
+            transform: translateY(-7px);
         }
     }
     &__item:nth-child(1) {
         position: relative;
         grid-column: span 2;
         grid-row: span 4;
-        background: url('../img/hero-1.jpg');
+        background-image: url('../img/hero-1.jpg');
 
         span {
             position: absolute;
             top: 15px;
             right: 15px;
             padding: 7px 15px;
-            font-size: 14px;
+            font-size: 16px;
             color: #fff;
             background-color: $spanBackground;
         }
@@ -127,26 +215,31 @@ main {
     &__item:nth-child(3) {
         grid-column: span 2;
         grid-row: span 2;
-        background: url('../img/hero-2.jpg');
+        background-image: url('../img/hero-2.jpg');
     }
     &__item:nth-child(4) {
-        background: url('../img/hero-3.jpg');
+        background-image: url('../img/hero-3.jpg');
     }
     &__item:nth-child(5) {
-        background: url('../img/hero-4.jpg');
+        background-image: url('../img/hero-4.jpg');
     }
     &__box {
         position: absolute;
-        left: 30px;
-        bottom: 30px;
+        max-width: 420px;
+        left: 60px;
+        bottom: 60px;
         color: #fff;
 
         div {
-            font-size: 16px;
+            font-family: 'Roboto';
+            font-size: 18px;
         }
         h1 {
+            font-family: 'TT Firs Neue';
+            margin-bottom: 10px;
             font-weight: bold;
-            font-size: 34px;
+            font-size: 35px;
+            line-height: 38px;
         }
     }
 }
@@ -154,45 +247,134 @@ main {
 .about_us {
     background-color: $mainBackground;
 
+    .container {
+        padding-top: 30px;
+        padding-bottom: 66px;
+    }
     &__container {
         display: grid;
-        padding-top: 30px;
-        padding-bottom: 70px;
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
-    h2 {
+    .title {
         color: #fff;
     }
-    p {
-        font-family: 'Roboto';
-        font-size: 16px;
-        line-height: 28px;
-        color: #CACACA;
+    h3 {
+        margin-top: 21px;
+        margin-bottom: 16px;
+        font-size: 26px;
+        color: #FFFFFF;
     }
-    span {
+    &__img {
         width: 100%;
         min-height: 255px;
         background: url('../img/about-us.jpg');
     }
+    p {
+        font-family: 'Roboto';
+        font-size: 14px;
+        line-height: 28px;
+        color: #CACACA;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input {
+        min-width: 470px;
+        padding: 15px 23px;
+        background: #4A4A4A;
+        color: #CACACA;
+        font-size: 16px;
+    }
+    input::placeholder {
+        font-size: 16px;
+    }
 }
 
 .projects {
-    &__box{
+    .title {
+        margin-bottom: 12px;
+    }
+    .container {
+        padding-top: 68px;
+        padding-bottom: 69px;
+    }
+    &__container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 30px;
     }
     &__item {
+        position: relative;
         min-height: 300px;
 
-        span {
-            padding-left: 17px;
-            font-size: 12px;
-            color: #999999;
-            background: url('../img/svg/calendar-gray.svg') no-repeat;
-            background-position: left center;
+        h4 {
+            max-width: 280px;
+            margin-top: 12px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13.5px;
+            line-height: 19px;
+            color: #202020;
         }
+    }
+    &__span {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        padding: 6px 14px;
+        color: #FFFFFF;
+        background-color: #333333;
+        font-family: 'Roboto';
+        font-size: 16px;
+    }
+    &__box {
+        padding: 25px 30px;
+    }
+    .btn_transparent {
+        position: absolute;
+        left: 30px;
+        bottom: 25px;
+    }
+    &__date {
+        // правильно ли перемещать таким способом, если не работает transform?
+        position: relative;
+        top: 8px;
+        padding-left: 17px;
+        font-size: 11px;
+        color: #999999;
+        background: url('../img/svg/calendar-gray.svg') no-repeat;
+        background-position: left center;
+    }
+    &__white {
+        padding-left: 17px;
+        font-size: 12px;
+        color: #fff;
+        background: url('../img/svg/calendar-white.svg') no-repeat;
+        background-position: left center;
+    }
+    h3 {
+        max-width: 280px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 22px;
+        color: #FFFFFF;
+        line-height: 24px;
+        font-family: 'TT Firs Neue';
+    }
+    p {
+        max-width: 300px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #FFFFFF;
     }
     &__item:nth-child(1){
         grid-column: span 2;
@@ -219,7 +401,145 @@ main {
     }
 }
 
-footer {
+.contacts {
+    margin-bottom: 69px;
+
+    .title {
+        margin-bottom: 23px;
+    }    
+    &__container {
+        height: 460px;
+        display: grid;
+        grid-template-columns: minmax(850px, 1fr) 1fr;
+        gap: 30px;
+
+        #map {
+            position: relative;
+        }
+        h3{
+            font-family: 'TT Firs Neue';
+            font-size: 22px;
+            line-height: 22px;
+            color: #202020;
+            transform: translateY(-8px);
+        }
+        p {
+            margin-top: -3px;
+            font-family: 'Roboto';
+            font-size: 18px;
+            line-height: 22px;
+            color: #999999;
+        }
+        form {
+            margin-top: 14px;
+        }
+        input,
+        textarea {
+            min-width: 410px;
+            max-height: 150px;
+            padding: 15px 23px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background: #E9E9E9;
+            resize: none;
+        }
+        input::placeholder,
+        textarea::placeholder {
+            font-size: 16px;
+            color: #999999;
+        }
+    }
+    &__item {
+        height: inherit;
+    }
+    .ymaps-2-1-79-map {
+        height: inherit;
+    }
+    &__box {
+        position: absolute;
+        z-index: 1;
+        width: 48%;
+        height: 100%;
+        padding: 175px 60px 60px;
+        top: 0;
+        left: 0;
+        background-color: rgba(32, 32, 32, 0.85);
+
+        h4 {
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+        address {
+            margin-top: 5px;
+            margin-bottom: 3px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-size: 16px;
+            line-height: 28px;
+            color: #CACACA;
+        }
+        a {
+            font-family: 'TT Firs Neue';
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+    }
+    &__close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+.footer {
     grid-area: 'footer';
     background-color: $mainBackground;
+
+    .container {
+        padding-top: 18px;
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__item {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #CACACA;
+    }
+    &__item:nth-child(1) {
+        span {
+            font-family: 'TT Firs Neue';
+            display: block;
+            color: #E9E9E9;
+            font-size: 14px;
+        }
+    }
+    &__item:nth-child(2) {
+        max-width: 485px;
+
+        p {
+            padding-right: 120px;
+        }
+        span {
+            display: block;
+            color: #4A4A4A;
+        }
+    }
+    &__item:nth-child(3) {
+        nav {
+            margin-top: 13px;
+            padding-left: 19px;
+        }
+        a:not(:last-child) {
+            margin-right: 17px;
+        }
+    }
+    &__svg {
+        width: 30px;
+        height: 30px;
+    }
 }
