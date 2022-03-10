@@ -5,7 +5,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../fonts/TTFirsNeue-Bold.woff') format('woff'); 
+         url('../fonts/TTFirsNeue-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
@@ -13,7 +13,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../fonts/TTFirsNeue-Regular.woff') format('woff'); 
+         url('../fonts/TTFirsNeue-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -21,7 +21,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../fonts/TTFirsNeue-Medium.woff') format('woff'); 
+         url('../fonts/TTFirsNeue-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
@@ -29,7 +29,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../fonts/TTFirsNeue-DemiBold.woff') format('woff'); 
+         url('../fonts/TTFirsNeue-DemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
@@ -41,13 +41,17 @@ $spanBackground: #333;
     text-decoration: none;
     list-style: none;
     border: none;
-    outline: none;   
+    outline: none;
 }
 
 .container {
     font-family: 'Roboto';
     max-width: 1290px;
     margin: auto;
+}
+
+.burger {
+    display: none;
 }
 
 .btn {
@@ -60,10 +64,10 @@ $spanBackground: #333;
     color: #fff;
     cursor: pointer;
     transition: .3s ease-in-out background-color;
-}
 
-.btn:hover {
-    background-color: #BC572B;
+    &:hover {
+        background-color: #BC572B;
+    }
 }
 
 .btn:focus {
@@ -85,19 +89,22 @@ $spanBackground: #333;
     border: 4px solid $btnBackground;
     cursor: pointer;
     transition: .3s ease-in-out background-color;
+
+    &:hover {
+        background-color: #FF6E30;
+    }
+    &:focus {
+        background-color: #BC572B;
+        outline: 3px solid #FF6E30;
+    }
+    &:active {
+        background-color: #CE4307;
+    }
 }
 
-.btn_transparent:hover {
-    background-color: #FF6E30;
-}
-
-.btn_transparent:focus {
-    background-color: #BC572B;
-    outline: 3px solid #FF6E30;
-}
-
-.btn_transparent:active {
-    background-color: #CE4307;
+img {
+    object-fit: cover;
+    object-position: center;
 }
 
 .title {
@@ -137,24 +144,25 @@ $spanBackground: #333;
         line-height: 21px;
         color: #fff;
         transition: .3s ease-in-out color;
-    }
-    &__link:not(:last-child) {
-        margin-right: 79px;
-    }
-    &__link:hover {
-        color: #FF6E30;
-    }
-    &__link:focus {
-        padding-left: 5px;
-        padding-right: 5px;
-        color: #fff;
-        background-color: #BC572B;
-    }
-    &__link:active {
-        padding-left: 0;
-        padding-right: 0;
-        color: #CE4307;
-        background-color: transparent;
+
+        &:hover {
+            color: #FF6E30;
+        }
+        &:not(:last-child) {
+            margin-right: 79px;
+        }
+        &:focus {
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #fff;
+            background-color: #BC572B;
+        }
+        &:active {
+            padding-left: 0;
+            padding-right: 0;
+            color: #CE4307;
+            background-color: transparent;
+        }
     }
     &__social:not(:last-child) {
         margin-right: 16px;
@@ -165,6 +173,9 @@ $spanBackground: #333;
     &__svg {
         width: 30px;
         height: 30px;
+    }
+    &__line {
+        display: none;
     }
 }
 
@@ -262,13 +273,16 @@ main {
     h3 {
         margin-top: 21px;
         margin-bottom: 16px;
-        font-size: 26px;
+        font-size: 28px;
+        font-weight: normal;
         color: #FFFFFF;
     }
     &__img {
         width: 100%;
         min-height: 255px;
-        background: url('../img/about-us.jpg');
+        background: url('../img/about-us.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
     }
     p {
         font-family: 'Roboto';
@@ -388,10 +402,12 @@ main {
     &__item:nth-child(4){
         grid-column: span 6;
         background: url('../img/about-project-1.jpg') no-repeat;
+        background-size: cover;
     }
     &__item:nth-child(5){
         grid-column: span 6;
         background: url('../img/about-project-2.jpg') no-repeat;
+        background-size: cover;
     }
     &__item:nth-child(6){
         grid-column: span 3;
@@ -406,7 +422,7 @@ main {
 
     .title {
         margin-bottom: 23px;
-    }    
+    }
     &__container {
         height: 460px;
         display: grid;
@@ -436,12 +452,17 @@ main {
         input,
         textarea {
             min-width: 410px;
+            max-width: inherit;
             max-height: 150px;
             padding: 15px 23px;
             margin-bottom: 20px;
             font-size: 16px;
             background: #E9E9E9;
             resize: none;
+
+            &:hover {
+                outline: 1px solid #FF6E30;
+            }
         }
         input::placeholder,
         textarea::placeholder {
@@ -452,7 +473,14 @@ main {
     &__item {
         height: inherit;
     }
+    &__item:nth-child(1) {
+        max-width: 850px;
+    }
+    &__item:nth-child(2) {
+        max-width: 410px;
+    }
     .ymaps-2-1-79-map {
+        max-width: inherit;
         height: inherit;
     }
     &__box {
@@ -460,29 +488,33 @@ main {
         z-index: 1;
         width: 48%;
         height: 100%;
-        padding: 175px 60px 60px;
+        padding: 167px 60px 60px;
         top: 0;
         left: 0;
         background-color: rgba(32, 32, 32, 0.85);
 
         h4 {
-            font-size: 24px;
+            font-size: 25px;
             color: #FFFFFF;
         }
         address {
-            margin-top: 5px;
+            max-width: 300px;
+            margin-top: 2px;
             margin-bottom: 3px;
             font-family: 'Roboto';
             font-style: normal;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 28px;
             color: #CACACA;
         }
-        a {
-            font-family: 'TT Firs Neue';
-            font-size: 16px;
-            color: #FFFFFF;
-        }
+    }
+    &__tel {
+        padding-left: 22px;
+        background: url('../img/svg/tel.svg') no-repeat;
+        background-position: center left;
+        font-family: 'TT Firs Neue';
+        font-size: 16px;
+        color: #FFFFFF;
     }
     &__close {
         position: absolute;
@@ -538,8 +570,16 @@ main {
             margin-right: 17px;
         }
     }
-    &__svg {
+    a {
+        cursor: pointer;
         width: 30px;
         height: 30px;
+    }
+    &__svg {
+        width: inherit;
+        height: inherit;
+    }
+    &__line {
+        display: none;
     }
 }

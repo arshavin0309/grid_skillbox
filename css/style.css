@@ -43,6 +43,10 @@
   margin: auto;
 }
 
+.burger {
+  display: none;
+}
+
 .btn {
   display: inline-block;
   padding: 15px 22px;
@@ -93,6 +97,13 @@
 
 .btn_transparent:active {
   background-color: #CE4307;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .title {
@@ -148,12 +159,12 @@
   transition: .3s ease-in-out color;
 }
 
-.header__link:not(:last-child) {
-  margin-right: 79px;
-}
-
 .header__link:hover {
   color: #FF6E30;
+}
+
+.header__link:not(:last-child) {
+  margin-right: 79px;
 }
 
 .header__link:focus {
@@ -181,6 +192,10 @@
 .header__svg {
   width: 30px;
   height: 30px;
+}
+
+.header__line {
+  display: none;
 }
 
 main {
@@ -295,14 +310,17 @@ main {
 .about_us h3 {
   margin-top: 21px;
   margin-bottom: 16px;
-  font-size: 26px;
+  font-size: 28px;
+  font-weight: normal;
   color: #FFFFFF;
 }
 
 .about_us__img {
   width: 100%;
   min-height: 255px;
-  background: url("../img/about-us.jpg");
+  background: url("../img/about-us.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .about_us p {
@@ -458,11 +476,13 @@ main {
 .projects__item:nth-child(4) {
   grid-column: span 6;
   background: url("../img/about-project-1.jpg") no-repeat;
+  background-size: cover;
 }
 
 .projects__item:nth-child(5) {
   grid-column: span 6;
   background: url("../img/about-project-2.jpg") no-repeat;
+  background-size: cover;
 }
 
 .projects__item:nth-child(6) {
@@ -518,12 +538,18 @@ main {
 .contacts__container input,
 .contacts__container textarea {
   min-width: 410px;
+  max-width: inherit;
   max-height: 150px;
   padding: 15px 23px;
   margin-bottom: 20px;
   font-size: 16px;
   background: #E9E9E9;
   resize: none;
+}
+
+.contacts__container input:hover,
+.contacts__container textarea:hover {
+  outline: 1px solid #FF6E30;
 }
 
 .contacts__container input::-webkit-input-placeholder,
@@ -554,7 +580,16 @@ main {
   height: inherit;
 }
 
+.contacts__item:nth-child(1) {
+  max-width: 850px;
+}
+
+.contacts__item:nth-child(2) {
+  max-width: 410px;
+}
+
 .contacts .ymaps-2-1-79-map {
+  max-width: inherit;
   height: inherit;
 }
 
@@ -563,28 +598,32 @@ main {
   z-index: 1;
   width: 48%;
   height: 100%;
-  padding: 175px 60px 60px;
+  padding: 167px 60px 60px;
   top: 0;
   left: 0;
   background-color: rgba(32, 32, 32, 0.85);
 }
 
 .contacts__box h4 {
-  font-size: 24px;
+  font-size: 25px;
   color: #FFFFFF;
 }
 
 .contacts__box address {
-  margin-top: 5px;
+  max-width: 300px;
+  margin-top: 2px;
   margin-bottom: 3px;
   font-family: 'Roboto';
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 28px;
   color: #CACACA;
 }
 
-.contacts__box a {
+.contacts__tel {
+  padding-left: 22px;
+  background: url("../img/svg/tel.svg") no-repeat;
+  background-position: center left;
   font-family: 'TT Firs Neue';
   font-size: 16px;
   color: #FFFFFF;
@@ -653,8 +692,18 @@ main {
   margin-right: 17px;
 }
 
-.footer__svg {
+.footer a {
+  cursor: pointer;
   width: 30px;
   height: 30px;
+}
+
+.footer__svg {
+  width: inherit;
+  height: inherit;
+}
+
+.footer__line {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
