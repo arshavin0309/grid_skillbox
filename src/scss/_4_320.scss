@@ -1,5 +1,25 @@
-@media (max-width: 350px) {
+@media (max-width: 380px) {
     .container {
         max-width: 320px;
+    }
+
+    .hero {
+        &__big {
+            background-image: url('../img/hero-1-320.jpg');
+        }
+    }
+
+    .contacts {
+        &__big {
+            max-width: 320px;
+            margin-left: -21px;
+            margin-right: -21px;
+        }
+        &__item:nth-child(1) {
+            max-width: 100%;
+            min-width: 320px;
+            margin-left: -21px;
+            margin-right: -21px;
+        }
     }
 }

@@ -1,11 +1,13 @@
 $mainBackground: #202020;
 $btnBackground: #FF6E30;
 $spanBackground: #333;
+$colorSvg: #CACACA;
+$colorActive: #CE4307;
 
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../resources/fonts/TTFirsNeue-Bold.woff') format('woff');
+         url('../fonts/TTFirsNeue-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
@@ -13,7 +15,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../resources/fonts/TTFirsNeue-Regular.woff') format('woff');
+         url('../fonts/TTFirsNeue-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -21,7 +23,7 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../resources/fonts/TTFirsNeue-Medium.woff') format('woff');
+         url('../fonts/TTFirsNeue-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
@@ -29,8 +31,32 @@ $spanBackground: #333;
 @font-face {
     font-family: 'TT Firs Neue';
     src: local('TT Firs Neue'),
-         url('../resources/fonts/TTFirsNeue-DemiBold.woff') format('woff');
+         url('../fonts/TTFirsNeue-DemiBold.woff') format('woff');
     font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'),
+         url('../fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'),
+         url('../fonts/Roboto-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'),
+         url('../fonts/Roboto-Bold.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -44,6 +70,21 @@ $spanBackground: #333;
     outline: none;
 }
 
+body {
+    min-width: 320px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
 .container {
     font-family: 'Roboto';
     max-width: 1290px;
@@ -54,9 +95,24 @@ $spanBackground: #333;
     display: none;
 }
 
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    transition: .3s ease-in-out outline;
+
+    &:hover,
+    &:focus {
+        outline: 1px solid $btnBackground;
+    }
+}
+
 .btn {
     display: inline-block;
-    padding: 15px 22px;
+    padding: 15px 19px;
     font-family: 'Roboto';
     font-weight: bold;
     font-size: 17px;
@@ -65,20 +121,16 @@ $spanBackground: #333;
     cursor: pointer;
     transition: .3s ease-in-out background-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: #BC572B;
+    }
+    &:active {
+        background-color: $colorActive;
     }
 }
 
-.btn:focus {
-    outline: 3px solid #BC572B;
-}
-
-.btn:active {
-    background-color: #CE4307;
-}
-
-.btn_transparent {
+.btn-transparent {
     display: inline-block;
     padding: 12px 19px;
     font-family: 'Roboto';
@@ -91,14 +143,14 @@ $spanBackground: #333;
     transition: .3s ease-in-out background-color;
 
     &:hover {
-        background-color: #FF6E30;
+        background-color: $btnBackground;
     }
     &:focus {
         background-color: #BC572B;
-        outline: 3px solid #FF6E30;
+        outline: 3px solid $btnBackground;
     }
     &:active {
-        background-color: #CE4307;
+        background-color: $colorActive;
     }
 }
 
@@ -109,7 +161,7 @@ img {
 
 .title {
     font-family: 'TT Firs Neue';
-    font-size: 22.5px;
+    font-size: 24px;
     font-weight: 700;
 }
 
@@ -120,36 +172,45 @@ img {
 }
 
 .header {
-    grid-area: 'header';
     background-color: $mainBackground;
 
     .container {
-        height: 80px;
         display: flex;
+        padding-top: 25px;
+        padding-bottom: 25px;
         justify-content: space-between;
         align-items: center;
     }
     &__logo {
         max-width: 190px;
         max-height: 30px;
+        transition: .3s ease-in-out transform;
+
+        &:hover,
+        &:focus {
+            transform: scale(105%);
+        }
+        &:active {
+            transform: scale(95%);
+        }
     }
     &__nav {
-        padding-left: 62px;
+        margin-left: 62px;
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
     &__link {
         font-weight: normal;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 21px;
         color: #fff;
         transition: .3s ease-in-out color;
 
-        &:hover {
-            color: #FF6E30;
+        &:hover, {
+            color: $btnBackground;
         }
         &:not(:last-child) {
-            margin-right: 79px;
+            margin-right: 77px;
         }
         &:focus {
             padding-left: 5px;
@@ -160,12 +221,14 @@ img {
         &:active {
             padding-left: 0;
             padding-right: 0;
-            color: #CE4307;
+            color: $colorActive;
             background-color: transparent;
         }
     }
-    &__social:not(:last-child) {
-        margin-right: 16px;
+    &__socials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
     }
     &__search {
         display: none;
@@ -173,89 +236,108 @@ img {
     &__svg {
         width: 30px;
         height: 30px;
+        fill: $colorSvg;
+        transition: .3s ease-in-out fill;
+
+        &:hover,
+        &:focus {
+            fill: $btnBackground;
+        }
+        &:active {
+            fill: $colorActive;
+        }
+    }
+    &__burger {
+        width: 20px;
+        height: 18px;
+        fill: $colorSvg;
+        transition: .3s ease-in-out fill;
+
+        &:hover,
+        &:focus {
+            fill: $btnBackground;
+        }
+        &:active {
+            fill: $colorActive;
+        }
     }
     &__line {
         display: none;
     }
 }
 
-main {
-    grid-area: 'main';
-}
-
 .hero {
-    padding-top: 40px;
-    padding-bottom: 70px;
-
     .container{
-        min-height: 630px;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 25px repeat(2, 1fr) minmax(105px, 255px);
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+        padding-top: 40px;
+        padding-bottom: 60px;
     }
-    &__item {
-        max-width: 100%;
-        background-repeat: no-repeat;
+    .title {
+        margin-bottom: 10px;
+        transform: translateY(-11px);
+    }
+    &__big {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 60px;
         background-size: cover;
         background-position: center;
-
-        .title {
-            transform: translateY(-7px);
-        }
-    }
-    &__item:nth-child(1) {
-        position: relative;
-        grid-column: span 2;
-        grid-row: span 4;
         background-image: url('../img/hero-1.jpg');
-
-        span {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 7px 15px;
-            font-size: 16px;
-            color: #fff;
-            background-color: $spanBackground;
-        }
     }
-    &__item:nth-child(2) {
-        grid-column: span 2;
-    }
-    &__item:nth-child(3) {
-        grid-column: span 2;
-        grid-row: span 2;
-        background-image: url('../img/hero-2.jpg');
-    }
-    &__item:nth-child(4) {
-        background-image: url('../img/hero-3.jpg');
-    }
-    &__item:nth-child(5) {
-        background-image: url('../img/hero-4.jpg');
-    }
-    &__box {
+    &__span {
         position: absolute;
-        max-width: 420px;
-        left: 60px;
-        bottom: 60px;
+        top: 15px;
+        right: 15px;
+        padding: 7px 15px;
+        font-size: 16px;
         color: #fff;
+        background-color: $spanBackground;
+        cursor: pointer;
+        transition: .3s ease-in-out font-size;
 
-        div {
-            font-family: 'Roboto';
+        &:hover,
+        &:focus {
             font-size: 18px;
         }
-        h1 {
-            font-family: 'TT Firs Neue';
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 35px;
-            line-height: 38px;
+        &:active {
+            font-size: 15px;
+        }
+    }
+    &__box {
+        max-width: 420px;
+        color: #fff;
+    }
+    &__author {
+        font-family: 'Roboto';
+        font-size: 18px;
+    }
+    &__heading {
+        font-family: 'TT Firs Neue';
+        margin-bottom: 23px;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 38px;
+    }
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        &-big {
+            grid-column: span 2;
         }
     }
 }
 
-.about_us {
+.about-us {
     background-color: $mainBackground;
 
     .container {
@@ -265,45 +347,51 @@ main {
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        grid-gap: 30px;
     }
     .title {
+        margin-bottom: 5px;
         color: #fff;
     }
-    h3 {
+    &__heading {
         margin-top: 21px;
-        margin-bottom: 16px;
-        font-size: 28px;
+        margin-bottom: 8px;
+        font-size: 24.5px;
         font-weight: normal;
         color: #FFFFFF;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            min-height: 255px;
+            background: url('../img/about-us.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            transform: translateY(-25px);
+        }
     }
-    &__img {
-        width: 100%;
-        min-height: 255px;
-        background: url('../img/about-us.jpg') no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    p {
+    &__info {
         font-family: 'Roboto';
-        font-size: 14px;
+        font-size: 16px;
         line-height: 28px;
-        color: #CACACA;
+        color: $colorSvg;
     }
-    form {
+    &__form {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    input {
+    &__input {
         min-width: 470px;
         padding: 15px 23px;
         background: #4A4A4A;
-        color: #CACACA;
+        color: $colorSvg;
         font-size: 16px;
-    }
-    input::placeholder {
-        font-size: 16px;
+
+        &::placeholder {
+            font-size: 16px;
+        }
     }
 }
 
@@ -312,54 +400,82 @@ main {
         margin-bottom: 12px;
     }
     .container {
-        padding-top: 68px;
-        padding-bottom: 69px;
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
     &__container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 30px;
+        grid-gap: 30px;
     }
     &__item {
         position: relative;
         min-height: 300px;
+        grid-column: span 2;
 
-        h4 {
-            max-width: 280px;
-            margin-top: 12px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 13.5px;
-            line-height: 19px;
-            color: #202020;
+        &-middle {
+            grid-column: span 3;
+        }
+        &-big {
+            grid-column: span 6;
+        }
+    }
+    &__heading {
+        max-width: 280px;
+        margin-top: 16px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15.5px;
+        line-height: 22px;
+        color: #202020;
+
+        &-main {
+            display: block;
+        }
+        &-768 {
+            display: none;
         }
     }
     &__span {
         position: absolute;
         top: 7px;
         right: 7px;
-        padding: 6px 14px;
+        padding: 6px 11px;
         color: #FFFFFF;
         background-color: #333333;
         font-family: 'Roboto';
         font-size: 16px;
+        cursor: pointer;
+        transition: .3s ease-in-out font-size;
+
+        &:hover,
+        &:focus {
+            font-size: 18px;
+        }
+        &:active {
+            font-size: 15px;
+        }
     }
     &__box {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
         padding: 25px 30px;
     }
-    .btn_transparent {
-        position: absolute;
-        left: 30px;
-        bottom: 25px;
+    &__content {
+        margin-bottom: 20px;
+    }
+    .btn-transparent {
+        max-width: 120px;
     }
     &__date {
-        // правильно ли перемещать таким способом, если не работает transform?
-        position: relative;
-        top: 8px;
+        position: absolute;
+        bottom: 0;
         padding-left: 17px;
-        font-size: 11px;
+        font-size: 12px;
         color: #999999;
         background: url('../img/svg/calendar-gray.svg') no-repeat;
         background-position: left center;
@@ -371,110 +487,86 @@ main {
         background: url('../img/svg/calendar-white.svg') no-repeat;
         background-position: left center;
     }
-    h3 {
-        max-width: 280px;
+    &__title {
+        max-width: 260px;
         margin-top: 5px;
         margin-bottom: 5px;
         font-weight: bold;
-        font-size: 22px;
+        font-size: 24px;
         color: #FFFFFF;
         line-height: 24px;
         font-family: 'TT Firs Neue';
     }
-    p {
-        max-width: 300px;
+    &__info {
+        max-width: 295px;
         font-family: 'Roboto';
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 19px;
+        font-size: 16px;
+        line-height: 25px;
         color: #FFFFFF;
     }
-    &__item:nth-child(1){
-        grid-column: span 2;
-    }
-    &__item:nth-child(2){
-        grid-column: span 2;
-    }
-    &__item:nth-child(3){
-        grid-column: span 2;
-    }
     &__item:nth-child(4){
-        grid-column: span 6;
         background: url('../img/about-project-1.jpg') no-repeat;
         background-size: cover;
     }
     &__item:nth-child(5){
-        grid-column: span 6;
         background: url('../img/about-project-2.jpg') no-repeat;
         background-size: cover;
-    }
-    &__item:nth-child(6){
-        grid-column: span 3;
-    }
-    &__item:nth-child(7){
-        grid-column: span 3;
     }
 }
 
 .contacts {
-    margin-bottom: 69px;
-
+    .container {
+        padding-bottom: 69px;
+    }
     .title {
         margin-bottom: 23px;
     }
     &__container {
-        height: 460px;
         display: grid;
         grid-template-columns: minmax(850px, 1fr) 1fr;
-        gap: 30px;
+        grid-gap: 30px;
 
         #map {
             position: relative;
         }
-        h3{
-            font-family: 'TT Firs Neue';
-            font-size: 22px;
-            line-height: 22px;
-            color: #202020;
-            transform: translateY(-8px);
-        }
-        p {
-            margin-top: -3px;
-            font-family: 'Roboto';
-            font-size: 18px;
-            line-height: 22px;
-            color: #999999;
-        }
-        form {
-            margin-top: 14px;
-        }
-        input,
-        textarea {
-            min-width: 410px;
-            max-width: inherit;
-            max-height: 150px;
-            padding: 15px 23px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            background: #E9E9E9;
-            resize: none;
+    }
+    &__title {
+        font-family: 'TT Firs Neue';
+        font-size: 22px;
+        line-height: 22px;
+        color: #202020;
+        transform: translateY(-8px);
+    }
+    &__info {
+        margin-top: -3px;
+        font-family: 'Roboto';
+        font-size: 18px;
+        line-height: 22px;
+        color: #999999;
+    }
+    &__form {
+        margin-top: 14px;
+    }
+    &__input,
+    &__textarea {
+        min-width: 410px;
+        max-width: inherit;
+        max-height: 150px;
+        padding: 15px 23px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        background: #E9E9E9;
+        resize: none;
 
-            &:hover {
-                outline: 1px solid #FF6E30;
-            }
-        }
-        input::placeholder,
-        textarea::placeholder {
+        &::placeholder {
             font-size: 16px;
             color: #999999;
         }
     }
     &__item {
         height: inherit;
-    }
-    &__item:nth-child(1) {
-        max-width: 850px;
     }
     &__item:nth-child(2) {
         max-width: 410px;
@@ -492,21 +584,20 @@ main {
         top: 0;
         left: 0;
         background-color: rgba(32, 32, 32, 0.85);
-
-        h4 {
-            font-size: 25px;
-            color: #FFFFFF;
-        }
-        address {
-            max-width: 300px;
-            margin-top: 2px;
-            margin-bottom: 3px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-size: 18px;
-            line-height: 28px;
-            color: #CACACA;
-        }
+    }
+    &__heading {
+        font-size: 25px;
+        color: #FFFFFF;
+    }
+    &__address {
+        max-width: 300px;
+        margin-top: 2px;
+        margin-bottom: 3px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-size: 15px;
+        line-height: 28px;
+        color: $colorSvg;
     }
     &__tel {
         padding-left: 22px;
@@ -520,55 +611,71 @@ main {
         position: absolute;
         top: 20px;
         right: 20px;
+
+        transition: .3s ease-in-out transform;
+
+        &:hover,
+        &:focus {
+            transform: scale(120%);
+        }
+        &:active {
+            transform: scale(90%);
+        }
     }
 }
 
 .footer {
-    grid-area: 'footer';
     background-color: $mainBackground;
 
     .container {
-        padding-top: 18px;
+        padding-top: 15px;
         padding-bottom: 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+    &__img {
+        transition: .3s ease-in-out transform;
+
+        &:hover,
+        &:focus {
+            transform: scale(105%);
+        }
+        &:active {
+            transform: scale(95%);
+        }
+    }
     &__item {
         font-family: 'Roboto';
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 22px;
-        color: #CACACA;
+        color: $colorSvg;
     }
-    &__item:nth-child(1) {
-        span {
-            font-family: 'TT Firs Neue';
-            display: block;
-            color: #E9E9E9;
-            font-size: 14px;
-        }
+    &__copyright {
+        font-family: 'TT Firs Neue';
+        display: block;
+        color: #E9E9E9;
+        font-size: 14px;
     }
     &__item:nth-child(2) {
         max-width: 485px;
-
-        p {
-            padding-right: 120px;
-        }
-        span {
-            display: block;
-            color: #4A4A4A;
-        }
     }
-    &__item:nth-child(3) {
-        nav {
-            margin-top: 13px;
-            padding-left: 19px;
-        }
-        a:not(:last-child) {
-            margin-right: 17px;
-        }
+    &__info {
+        margin-top: 8px;
+        margin-right: 120px;
+    }
+    &__span {
+        display: block;
+        color: #4A4A4A;
+    }
+    &__nav {
+        display: grid;
+        margin-top: 7px;
+        margin-left: 14px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
     }
     a {
         cursor: pointer;
@@ -578,6 +685,16 @@ main {
     &__svg {
         width: inherit;
         height: inherit;
+        fill: $colorSvg;
+        transition: .3s ease-in-out fill;
+
+        &:hover,
+        &:focus {
+            fill: $btnBackground;
+        }
+        &:active {
+            fill: $colorActive;
+        }
     }
     &__line {
         display: none;

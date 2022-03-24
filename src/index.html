@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High pass</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+    <script defer src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
+    <script defer src="js/index.js"></script>
 </head>
 <body class="body">
     <header class="header">
@@ -15,11 +16,11 @@
                 <img src="img/logo.png" alt="Логотип" class="header__logo">
             </a>
             <nav class="header__nav">
-                <a href="" class="burger">
-                    <svg>
+                <button class="burger">
+                    <svg class="header__burger">
                         <use xlink:href="img/sprite.svg#burger"></use>
                     </svg>
-                </a>
+                </button>
                 <a href="" class="header__link">О студии</a>
                 <a href="" class="header__link">Наши проекты</a>
                 <a href="" class="header__link">Услуги</a>
@@ -43,45 +44,66 @@
                     </svg>
                 </a>
             </nav>
-            <a href="" class="header__search">
+            <button class="header__search">
                 <svg class="header__svg">
                     <use xlink:href="img/sprite.svg#search"></use>
                 </svg>
-            </a>
+            </button>
         </div>
         <div class="header__line"></div>
     </header>
     <main>
+        <h1 class="visually-hidden">High Pass</h1>
         <section class="hero">
             <div class="container">
-                <div class="hero__item">
-                    <span>#мастеркласс</span>
+                <div class="hero__big">
+                    <span class="hero__span">#мастеркласс</span>
                     <div class="hero__box">
-                        <div>Мастер-класс от Игоря Робова</div>
-                        <h1>Неоновый фотосет 2.0 7 июля 20:00</h1>
+                        <div class="hero__author">Мастер-класс от Игоря Робова</div>
+                        <h2 class="hero__heading">Неоновый фотосет 2.0 7 июля 20:00</h2>
                         <a href="" class="btn">Узнать больше</a>
+                    </div></div>
+                <div class="hero__images">
+                    <h2 class="title">Работы участников предыдущего мастер-класса</h2>
+                    <div class="hero__list">
+                        <picture class="hero__img-big">
+                            <source media="(min-width: 1350px)" srcset="img/hero-2.jpg">
+                            <source media="(min-width: 1000px)" srcset="img/hero-2-1024.jpg">
+                            <source media="(min-width: 760px)" srcset="img/hero-2-768.jpg">
+                            <source srcset="img/hero-2-320.jpg">
+                            <img src="img/hero-2.jpg" alt="фото" class="hero__img-big">
+                        </picture>
+                        <picture class="hero__img">
+                            <source media="(min-width: 1350px)" srcset="img/hero-3.jpg">
+                            <source media="(min-width: 1000px)" srcset="img/hero-3-1024.jpg">
+                            <source media="(min-width: 760px)" srcset="img/hero-3-768.jpg">
+                            <source srcset="img/hero-3-320.jpg">
+                            <img src="img/hero-3.jpg" alt="фото" class="hero__img">
+                        </picture>
+                        <picture class="hero__img">
+                            <source media="(min-width: 1350px)" srcset="img/hero-4.jpg">
+                            <source media="(min-width: 1000px)" srcset="img/hero-4-1024.jpg">
+                            <source media="(min-width: 760px)" srcset="img/hero-4-768.jpg">
+                            <source srcset="img/hero-4-320.jpg">
+                            <img src="img/hero-4.jpg" alt="фото" class="hero__img">
+                        </picture>
                     </div>
                 </div>
-                <div class="hero__item"><h2 class="title">Работы участников предыдущего мастер-класса</h2></div>
-                <div class="hero__item"></div>
-                <div class="hero__item"></div>
-                <div class="hero__item"></div>
             </div>
         </section>
-        <section class="about_us">
+        <section class="about-us">
             <div class="container">
                 <h2 class="title">О студии</h2>
-                <div class="about_us__container">
-                    <div class="about_us__item">
-                        <p>
+                <div class="about-us__container">
+                    <div class="about-us__item">
+                        <p class="about-us__info">
                             В рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий  фиксирует необходимость распределения внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально-технической и кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и нарушающими общечеловеческие нормы этики.
                         </p>
                     </div>
-                    <div class="about_us__item">
-                        <div class="about_us__img"></div>
-                        <h3>Подписаться на рассылку</h3>
-                        <form>
-                            <input type="text" placeholder="E-mail">
+                    <div class="about-us__item">
+                        <h3 class="about-us__heading">Подписаться на рассылку</h3>
+                        <form class="about-us__form">
+                            <input name="email" type="email" placeholder="E-mail" class="about-us__input" required>
                             <button class="btn" type="submit">Отправить</button>
                         </form>
                     </div>
@@ -93,54 +115,69 @@
                 <h2 class="title">Наши проекты</h2>
                 <div class="projects__container">
                     <div class="projects__item">
-                        <img src="img/our-projects-1.jpg" alt="картинка">
+                        <img src="img/our-projects-1.jpg" alt="картинка" class="projects__img">
                         <span class="projects__span">#пейзаж</span>
-                        <h4>Синтетически, смешаны с не уникальными данными до степени...</h4>
+                        <h4 class="projects__heading">
+                            Синтетически, смешаны с не <wbr> уникальными
+                            <span class="projects__hidden"> данными до степени</span>
+                            ...
+                        </h4>
                         <span class="projects__date">16 июня</span>
                     </div>
                     <div class="projects__item">
-                        <img src="img/our-projects-2.jpg" alt="картинка">
+                        <img src="img/our-projects-2.jpg" alt="картинка" class="projects__img">
                         <span class="projects__span">#портрет</span>
-                        <h4>В своём стремлении улучшить опыт мы упускаем, что явные...</h4>
+                        <h4 class="projects__heading">
+                            В своём стремлении улучшить опыт мы
+                            <span class="projects__hidden">упускаем, что явные</span>
+                            ...
+                        </h4>
                         <span class="projects__date">28 мая</span>
                     </div>
                     <div class="projects__item">
-                        <img src="img/our-projects-3.jpg" alt="картинка">
+                        <img src="img/our-projects-3.jpg" alt="картинка" class="projects__img">
                         <span class="projects__span">#предмет</span>
-                        <h4>Равным образом, высокое качество позиционных...</h4>
+                        <h4 class="projects__heading projects__heading-main">
+                            Равным образом, высокое качество позиционных...
+                        </h4>
+                        <h4 class="projects__heading projects__heading-768">Равным образом, высокое качество позиционных высокотехнологичная концепция общественного уклада</h4>
                         <span class="projects__date">14 мая</span>
                     </div>
-                    <div class="projects__item">
+                    <div class="projects__item projects__item-big">
                         <div class="projects__box">
-                            <div class="projects__white">9 апреля</div>
-                            <span class="projects__span">#fuji</span>
-                            <h3>Cемантический разбор</h3>
-                            <p>
-                                В рамках спецификации современных стандартов, интерактивные прототипы
-                            </p>
-                            <a href="" class="btn_transparent">О проекте</a>
+                            <div class="projects__content">
+                                <div class="projects__white">9 апреля</div>
+                                <span class="projects__span">#fuji</span>
+                                <h3 class="projects__title">Cемантический разбор</h3>
+                                <p class="projects__info">
+                                    В рамках спецификации современных стандартов, интерактивные прототипы
+                                </p>
+                            </div>
+                            <a href="" class="btn-transparent">О проекте</a>
                         </div>
                     </div>
-                    <div class="projects__item">
+                    <div class="projects__item projects__item-big">
                         <div class="projects__box">
-                            <div class="projects__white">20 марта</div>
-                            <span class="projects__span">#проектзабвение</span>
-                            <h3>Забвение</h3>
-                            <p>
-                                Играет важную роль в формировании глубокомысленных рассуждений
-                            </p>
-                            <a href="" class="btn_transparent">О проекте</a></div>
+                            <div class="projects__content">
+                                <div class="projects__white">20 марта</div>
+                                <span class="projects__span">#проектзабвение</span>
+                                <h3 class="projects__title">Забвение</h3>
+                                <p class="projects__info">
+                                    Играет важную роль в формировании глубокомысленных рассуждений
+                                </p>
+                            </div>
+                            <a href="" class="btn-transparent">О проекте</a></div>
                         </div>
-                    <div class="projects__item">
-                        <img src="img/fruits.jpg" alt="картинка">
+                    <div class="projects__item projects__item-middle">
+                        <img src="img/fruits.jpg" alt="картинка" class="projects__img">
                         <span class="projects__span">#ретушь</span>
-                        <h4>Как принято считать, многие известные личности и по сей день остаются уделом либералов...</h4>
+                        <h4 class="projects__heading">Как принято считать, многие известные личности и по сей день остаются уделом либералов...</h4>
                         <span class="projects__date">9 марта</span>
                     </div>
-                    <div class="projects__item">
-                        <img src="img/woman.jpg" alt="картинка">
+                    <div class="projects__item projects__item-middle">
+                        <img src="img/woman.jpg" alt="картинка" class="projects__img">
                         <span class="projects__span">#портрет</span>
-                        <h4>С учётом сложившейся международной обстановки, новая модель организационной...</h4>
+                        <h4 class="projects__heading">С учётом сложившейся международной обстановки, новая модель организационной...</h4>
                         <span class="projects__date">1 марта</span>
                     </div>
                 </div>
@@ -152,24 +189,24 @@
                 <div class="contacts__container">
                     <div id="map" class="contacts__item">
                         <div class="contacts__box">
-                            <h4>Студия “High pass”</h4>
-                            <address>107045, Москва, Даев переулок, дом 41, бизнес-центр «Даев Плаза», этаж 8, офис № 82 </address>
+                            <h4 class="contacts__heading">Студия “High pass”</h4>
+                            <address class="contacts__address">107045, Москва, Даев переулок, дом <wbr> 41, бизнес-центр «Даев Плаза», этаж 8, офис № 82 </address>
                             <a class="contacts__tel" href="tel:+749542423532">+7 (495) 42-423-532</a>
-                            <a class="contacts__close" href="">
+                            <button class="contacts__close">
                                 <img src="img/svg/х.svg" alt="картинка">
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="contacts__item">
-                        <h3>Оставить заявку</h3>
-                        <p>
+                        <h3 class="contacts__title">Оставить заявку</h3>
+                        <p class="contacts__info">
                             Оставьте ваши данные, указав в графе “Комментарий” желаемые время и дату съемки или другого мероприятия
                         </p>
-                        <form>
-                            <input type="text" placeholder="Имя">
-                            <input type="text" placeholder="E-mail">
-                            <textarea cols="30" rows="10" placeholder="Комментарий"></textarea>
-                            <button class="btn" type="button">Отправить</button>
+                        <form class="contacts__form">
+                            <input name="name" type="text" placeholder="Имя" required class="contacts__input">
+                            <input name="email" type="email" placeholder="E-mail" required class="contacts__input">
+                            <textarea name="commit" cols="30" rows="10" placeholder="Комментарий" required class="contacts__textarea"></textarea>
+                            <button class="btn" type="submit">Отправить</button>
                         </form>
                     </div>
                 </div>
@@ -180,19 +217,19 @@
         <div class="container">
             <div class="footer__item">
                 <a class="footer__logo" href="">
-                    <img src="img/logo.png" alt="логотип">
+                    <img class="footer__img" src="img/logo.png" alt="логотип">
                 </a>
-                <span>Фотостудия High pass® 2018-2020</span>
+                <span class="footer__copyright">Фотостудия High pass® 2018-2020</span>
             </div>
             <div class="footer__item">
-                <p>
+                <p class="footer__info">
                     Которая из моих фотографий самая любимая? Та, которую я собираюсь снять завтра.
                 </p>
-                <span>© Имоджен Каннингем</span>
+                <span class="footer__span">© Имоджен Каннингем</span>
             </div>
             <div class="footer__item">
                 Больше интересного:
-                <nav>
+                <nav class="footer__nav">
                     <a>
                         <svg class="footer__svg">
                             <use xlink:href="img/sprite.svg#instagram"></use>
@@ -213,24 +250,5 @@
         </div>
         <div class="footer__line"></div>
     </footer>
-
-    <script type="text/javascript">
-        // Функция ymaps.ready() будет вызвана, когда
-        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-        ymaps.ready(init);
-        function init(){
-            // Создание карты.
-            var myMap = new ymaps.Map("map", {
-                // Координаты центра карты.
-                // Порядок по умолчанию: «широта, долгота».
-                // Чтобы не определять координаты центра карты вручную,
-                // воспользуйтесь инструментом Определение координат.
-                center: [55.76, 37.64],
-                // Уровень масштабирования. Допустимые значения:
-                // от 0 (весь мир) до 19.
-                zoom: 14
-            });
-        }
-    </script>
 </body>
 </html>
