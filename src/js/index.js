@@ -14,3 +14,37 @@ function init(){
         zoom: 14
     });
 }
+
+const burgerBtn = document.querySelector(".burger")
+const headerLink = document.querySelectorAll(".header__link")
+const headerLine = document.querySelector(".header__line")
+
+burgerBtn.addEventListener('click', ()=>{
+    headerLink.forEach(e => {
+        if (e.classList.contains('link-visible')) {
+            e.classList.toggle('link-visible')
+            setTimeout(()=>{
+                headerLine.classList.toggle('header__line-wide')
+            }, 100)
+        }   else {
+            headerLine.classList.toggle('header__line-wide')
+
+            setTimeout(()=>{
+                e.classList.toggle('link-visible')
+            }, 100)
+        }
+    });
+})
+
+const headerSearch = document.querySelector(".header__search")
+const headerForm = document.querySelector(".header__form")
+const headerBtn = document.querySelector(".header__btn")
+
+headerSearch.addEventListener('click', ()=>{
+    headerSearch.classList.toggle('header__search-none')
+    headerForm.classList.toggle('header__form-flex')
+})
+headerBtn.addEventListener('click', ()=>{
+    headerSearch.classList.toggle('header__search-none')
+    headerForm.classList.toggle('header__form-flex')
+})

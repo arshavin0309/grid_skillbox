@@ -16,7 +16,7 @@
 
     .btn-transparent {
         font-size: 14px;
-        padding: 6px 19px;
+        padding: 8px 19px;
     }
 
     .header {
@@ -28,7 +28,30 @@
             height: 18px;
         }
         &__link {
-            display: none;
+            z-index: 2;
+            position: absolute;
+            width: 90%;
+            font-size: 22px;
+            background-color: #4A4A4A;
+            visibility: hidden;
+            opacity: 0;
+            transition: 1s ease-in-out opacity;
+
+            &:nth-child(2) {
+                top: 75px;
+            }
+            &:nth-child(3) {
+                top: 110px;
+            }
+            &:nth-child(4) {
+                top: 145px;
+            }
+            &:nth-child(5) {
+                top: 180px;
+            }
+            &:nth-child(6) {
+                top: 215px;
+            }
         }
         &__nav {
             top: 70px;
@@ -45,6 +68,17 @@
             display: block;
             transform: translateY(2px);
         }
+        &__line {
+            transition: .3s ease-in-out height;
+            &-wide {
+                height: 290px;
+            }
+        }
+    }
+
+    .link-visible {
+        visibility: visible;
+        opacity: 1;
     }
 
     .hero {
@@ -143,7 +177,7 @@
             min-height: auto;
         }
         &__heading {
-            line-height: 21px;
+            line-height: 23px;
         }
         &__item {
             &:nth-child(1) {
@@ -165,6 +199,10 @@
             &:nth-child(5) {
                 grid-column: 1;
                 grid-row: 7;
+
+                .projects__content {
+                    margin-bottom: 20px;
+                }
             }
             &:nth-child(6) {
                 grid-column: 1;
@@ -173,6 +211,10 @@
             &:nth-child(7) {
                 grid-column: 1;
                 grid-row: 6;
+
+                .projects__heading {
+                    margin-top: 16px;
+                }
             }
         }
         &__span {
@@ -185,23 +227,27 @@
             font-size: 13px;
         }
         &__box {
-            padding-top: 200px;
+            padding-top: 197px;
         }
         &__title {
             margin-top: 10px;
+            margin-bottom: 9px;
         }
         &__info {
             font-size: 16px;
-            line-height: 19px;
+            line-height: 18px;
         }
         .btn-transparent {
             max-width: 110px;
+        }
+        &__content {
+            margin-bottom: 16px;
         }
     }
 
     .contacts {
         .container {
-            padding-bottom: 55px;
+            padding-bottom: 50px;
         }
         .title {
             margin-bottom: 13px;
@@ -216,6 +262,7 @@
         &__title {
             font-size: 16px;
             margin-bottom: 5px;
+            transform: translateY(-5px);
         }
         &__info {
             font-size: 14px;
@@ -224,6 +271,10 @@
         &__form {
             display: flex;
             flex-direction: column;
+
+            .btn {
+                padding: 12px 19px;
+            }
         }
         &__input,
         &__textarea {
